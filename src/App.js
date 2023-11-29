@@ -9,11 +9,12 @@ import EditMovieForm from "./components/EditMovieForm";
 import FavoriteMovieList from './components/FavoriteMovieList';
 
 import axios from 'axios';
+import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 
 const App = (props) => {
   const [movies, setMovies] = useState([]);
   const [favoriteMovies, setFavoriteMovies] = useState([]);
-
+  const { id } = useParams();
   useEffect(() => {
     axios.get('http://localhost:9000/api/movies')
       .then(res => {
